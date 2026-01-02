@@ -1,6 +1,6 @@
-# KoGaMaLib
+# junkyard-kgm
 
-KoGaMaLib is a personal archive containing a wide range of experimental, historical, and miscellaneous resources related to the KoGaMa website and game. The contents span different periods, purposes, and levels of polish, and reflect exploratory work rather than a single cohesive project.
+junkyard-kgm is a personal archive containing a wide range of experimental, historical, and miscellaneous resources related to the KoGaMa website and game. The contents span different periods, purposes, and levels of polish, and reflect exploratory work rather than a single cohesive project.
 
 This repository includes items such as:
 - legacy or abandoned experiments
