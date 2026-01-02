@@ -1,0 +1,236 @@
+#game-play > div {
+  position: relative;
+}
+
+/* SessionMenuButton */
+.kb-sm-icon {
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  transition: filter 250ms ease-in;
+}
+.kb-sm-icon.menu-open {
+  filter: grayscale(.3) brightness(.7);
+}
+
+/* SessionMenu */
+.kb-session-menu {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #35495e;
+  transform-origin: top right;
+  --header-height: 38px;
+}
+
+/* SessionMenu Header */
+.kb-sm-header {
+  display: flex;
+  height: var(--header-height);
+}
+.kb-sm-header > button:first-child {
+  max-width: var(--header-height);
+  background-color: cadetblue;
+}
+.kb-sm-header > button {
+  flex: 1;
+  background-color: #283540;
+}
+.kb-sm-header > button.active {
+  background-color: #41b883;
+}
+.kb-sm-header sup {
+  color: hsla(0,0%,100%,.53);
+}
+
+/* SessionMenu Content */
+.kb-sm-content {
+  max-height: calc(100% - var(--header-height));
+  flex: 1;
+}
+.kb-sm-content > div {
+  width: 100%;
+  height: 100%;
+}
+
+/* HelpTab */
+.kb-sm-help-tab {
+  padding: 20px;
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.kb-sm-help-tab > p {
+  margin-top: 10px;
+  white-space: pre-line;
+}
+.kb-sm-help-tab > p:last-child {
+  margin-bottom: 20px;
+}
+
+/* LocalTab */
+.kb-sm-local-tab {
+  padding: 20px;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+  place-items: center;
+}
+.kb-sm-local-tab img {
+  width: 90px;
+  height: 90px;
+  transition: all 250ms;
+}
+.kb-sm-local-tab img:hover {
+  width: 100px;
+  height: 100px;
+}
+
+/* RoomsTab */
+.kb-sm-rooms-tab {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+.kb-sm-rt-input {
+  flex: 3;
+  display: grid;
+  place-items: center;
+}
+.kb-sm-rt-input-container {
+  display: flex;
+}
+.kb-sm-rt-input input {
+  border-radius: 20px;
+  padding-left: 16px;
+  margin-left: 6px;
+  margin-right: 6px;
+  width: 150px;
+}
+.kb-sm-rt-input-join {
+  border-radius: 20px;
+  font-weight: bold;
+}
+.kb-sm-rt-input-fave {
+  cursor: pointer;
+}
+.kb-sm-rt-input-fave::after {
+  display: block;
+  content: "";
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+}
+.kb-sm-rt-input-fave.add-fave::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 34 34'%3E%3Ctitle%3EFavorite%3C%2Ftitle%3E%3Cg%3E%3Ccircle fill%3D'%23283540' cx%3D'17' cy%3D'17' r%3D'17'%2F%3E%3Cg%3E%3Cpolygon fill%3D'%23fff' points%3D'11.13 26.31 12.25 19.77 7.5 15.14 14.06 14.18 17 8.23 19.94 14.18 26.5 15.14 23.8 17.77 25.54 17.77 25.92 17.77 29.62 14.17 20.9 12.9 17 5 13.1 12.9 4.38 14.17 10.69 20.32 9.2 29 17 24.9 18 25.43 18 23.75 17 23.22 11.13 26.31'%2F%3E%3Cpolygon fill%3D'%23fff' points%3D'24.54 18.77 21.98 18.77 21.98 21.75 19 21.75 19 24.31 21.98 24.31 21.98 27.29 24.54 27.29 24.54 24.31 27.52 24.31 27.52 21.75 24.54 21.75 24.54 18.77'%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+.kb-sm-rt-input-fave.rm-fave::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 34 34'%3E%3Ctitle%3EUnfavorite%3C%2Ftitle%3E%3Cg id%3D'UnfavoriteButton'%3E%3Ccircle fill%3D'%23fff' cx%3D'17' cy%3D'17' r%3D'17'%2F%3E%3Cg%3E%3Cpolygon fill%3D'%23283540' points%3D'18 23.75 17 23.22 11.13 26.31 12.25 19.77 7.5 15.14 14.06 14.18 17 8.23 19.94 14.18 26.5 15.14 22.8 18.75 24.92 18.75 29.62 14.17 20.9 12.9 17 5 13.1 12.9 4.38 14.17 10.69 20.32 9.2 29 17 24.9 18 25.43 18 23.75'%2F%3E%3Cpolygon fill%3D'%23283540' points%3D'21.98 19.75 19 19.75 19 22.31 21.98 22.31 24.54 22.31 27.52 22.31 27.52 19.75 24.54 19.75 21.98 19.75'%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+.kb-sm-rt-input-fave.invalid-input,
+.kb-sm-rt-input-container > button:disabled {
+  filter: grayscale(.3) brightness(.7);
+  cursor: not-allowed;
+}
+.kb-sm-rt-saved {
+  flex: 5;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.kb-sm-rt-saved h2 {
+  text-align: center;
+  font-size: 20px;
+}
+.kb-sm-rt-saved p {
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+.kb-sm-rt-room-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  height: 90px;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #4a5a6a #2f3e4d;
+}
+.kb-sm-rt-room-card {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #fffd;
+  color: #1a1a1a;
+  cursor: alias;
+  scroll-snap-align: start;
+}
+.remove-button::after {
+  display: inline-block;
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 20 20'%3E%3Ctitle%3ERemove%3C%2Ftitle%3E%3Cg%3E%3Ccircle fill%3D'%23939598' cx%3D'10' cy%3D'10' r%3D'10'%2F%3E%3Cpolygon fill%3D'%23e7e8e9' points%3D'16.11 13.67 12.44 10 16.11 6.33 13.66 3.89 10 7.56 6.33 3.89 3.89 6.33 7.55 10 3.89 13.67 6.33 16.11 10 12.44 13.66 16.11 16.11 13.67'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  margin-right: -12px;
+  cursor: pointer;
+}
+
+/* KB Icons */
+.kb-icon::after {
+  display: block;
+  content: "";
+  background-repeat: no-repeat;
+}
+
+/* Transition Animation */
+.kb-popup-enter-active {
+  animation: kb-anim-popup 300ms;
+}
+.kb-popup-leave-active {
+  animation: kb-anim-popdown 300ms;
+}
+@keyframes kb-anim-popup {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  80% { transform: scale(.9); }
+  100% { transform: scale(1); }
+}
+@keyframes kb-anim-popdown {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.3); }
+  100% { transform: scale(0); }
+}
+
+/* Mobile Styling */
+@media screen and (max-width: 710px) {
+  .kb-session-menu {
+    right: 5vw;
+    max-width: 90vw;
+    height: 400px;
+    --header-height: 50px;
+  }
+  .kb-sm-local-tab {
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+  .kb-sm-local-tab img:hover {
+    width: 90px;
+    height: 90px;
+  }
+  .kb-sm-rt-room-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    place-items: center;
+    height: 140px;
+  }
+}

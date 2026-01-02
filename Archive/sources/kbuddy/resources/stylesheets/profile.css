@@ -1,0 +1,143 @@
+/* Shared Friends Tab */
+.shared-friends svg {
+	fill: hsla(0,0%,100%,.33) !important;
+}
+.shared-friends:hover svg {
+	fill: hsla(0,0%,100%,.83) !important;
+}
+.shared-friends span {
+	color: hsla(0,0%,100%,.33) !important;
+}
+.shared-friends:hover span {
+	color: hsla(0,0%,100%,.83) !important
+}
+
+/* KoGaMa Style Fix: Wrapping Badge List (Officially implemented as of October 22, 2020) */
+/* #profile-badges ul.badges {
+  flex-wrap: wrap !important;
+  position: unset !important;
+}
+#profile-badges {
+  width: auto !important;
+  height: auto !important;
+  margin-right: 32px;
+} */
+
+/* KoGaMa Style Fix: Unseen Badges take up equal amount of space */
+ul.badges > li.unseen {
+	flex-basis: 34px !important;
+}
+
+/* KoGaMa Style Fix: Missing Delete Post Button */
+a.destroy {
+  background: url(https://static.kogstatic.com/0000/e630b380fceecc3d296fd26fec61a605b8b9b358/a4023351c1c0ad044d39139bca216cf9.png) no-repeat 0 0 !important;
+}
+a.destroy:hover {
+  background: url(https://static.kogstatic.com/0000/e630b380fceecc3d296fd26fec61a605b8b9b358/a4023351c1c0ad044d39139bca216cf9.png) no-repeat 0 -20px !important;
+}
+
+/* KoGaMa Style Patch: Newlines in Feed Posts */
+li.status_updated div.feed-item,
+li.wall_post div.feed-item {
+	padding: 0 10px;
+}
+li.status_updated span.status-message,
+li.wall_post span.status-message {
+	padding: unset !important;
+	white-space: pre-line;
+}
+
+/* Profile Buttons: Responsive Design */
+.kb-profile-button a {
+	display: block;
+	width: 100%;
+}
+.kb-pb-container,
+.kb-inbound-container {
+	display: flex;
+}
+.kb-pb-container > div,
+.kb-inbound-container > div {
+	flex: 1;
+}
+.kb-inbound-container {
+	flex: 2 !important
+}
+@media screen and (min-width: 710px) {
+	.kb-profile-button {
+		position: absolute;
+		right: 44px;
+	}
+	.kb-pb-primary {
+		top: 34px;
+	}
+	.kb-pb-secondary {
+		top: 72px;
+	}
+	.kb-inbound-container > div:first-child {
+		margin-right: 5px;
+	}
+}
+
+/* Profile Buttons: Colors */
+.kb-switch-view > a {
+	background-color: #2196f3;
+}
+.kb-nuke-wall > a {
+	background-color: #ffd700;
+	color: #1c1c1c;
+}
+.kb-nuke-wall > a:hover {
+	color: #ff370f;
+}
+@media screen and (min-width: 1281px) {
+	.kb-nuke-wall > a {
+		line-height: 22px;
+		font-size: 16px;
+	}
+}
+.kb-favorite-friend > a {
+	background-color: #eaad00;
+}
+.kb-favorite-friend > a.is-favorite {
+	background-color: #e0841d;
+}
+.kb-cancel-pending > a {
+	background-color: #ff8a00;
+}
+.kb-accept-request > a {
+	background-color: #8bc34a;
+}
+.kb-reject-request > a {
+	background-color: hsla(0,0%,62%,.3);
+}
+
+/* Nuke Wall */
+.kb-nuke-wall-container {
+	background-color: gold;
+	color: #1c1c1c;
+	border-radius: 20px;
+	font-weight: bold;
+	font-size: 30px;
+	padding: 10px 30px;
+}
+@media screen and (min-width: 360px) {
+	.kb-nuke-wall-container {
+		font-size: calc(30px + 30 * ((100vw - 360px) / 350));
+	}
+}
+@media screen and (min-width: 710px) {
+	.kb-nuke-wall-container {
+		font-size: 60px;
+	}
+}
+
+.kb-nuke-loading {
+	display: inline-block;
+	animation: rotate 5s linear infinite;
+}
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}

@@ -1,0 +1,42 @@
+/* Toggle Switch */
+.kb-toggle {
+	width: 42px;
+	height: 24px;
+	background-color: #ccc;
+	border-radius: 24px;
+	cursor: pointer;
+	transition: background-color 500ms;
+}
+.kb-switch {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	transform: translate(3px, 2px);
+	border-radius: 50%;
+	background-color: white;
+	transition: transform 500ms;
+}
+.kb-toggle.on {
+	background-color: #2196F3;
+}
+.kb-toggle.on .kb-switch {
+	transform: translate(calc(100% - 1px), 2px);
+}
+
+/* Project Status Container */
+.kb-project-status {
+	display: flex;
+	align-items: center;
+	margin-right: 12px;
+	margin-top: 10px;
+}
+.kb-project-status > span {
+	margin-right: 8px;
+	font-size: 14px;
+	color: #8c959b;
+}
+@media screen and (max-width:549px) {
+  .kb-project-status {
+    display: none;
+  }
+}
